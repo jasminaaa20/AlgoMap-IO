@@ -9,5 +9,7 @@ class Solution(object):
         for num in nums:
             if abs(num) < abs(closest_number) or (abs(num) == abs(closest_number) and num > closest_number):
                 closest_number = num
-
+        
         return closest_number
+        # Time complexity: O(n)
+        # Space complexity: O(1)
