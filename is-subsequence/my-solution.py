@@ -5,16 +5,17 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
+
+        if len(s) == 0: return True
+
         i = 0
-        j = 0
-
-        if len(s) <= 0: return True
-
-        while j < len(t):
-            if t[j] == s[i]:
+        for letter in t:
+            if letter == s[i]:
                 i += 1
                 if i == len(s):
                     return True
-            j += 1
         
         return False
+
+        # Time Complexity: O(T)
+        # Space Complexity: O(1)
