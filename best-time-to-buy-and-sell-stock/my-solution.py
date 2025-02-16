@@ -4,16 +4,17 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
-        n = len(prices)
-        buying_price = float('inf')
+        lowest_price = 10001
         max_profit = 0
 
-        for i in range(n):
-            if prices[i] < buying_price:
-                buying_price = prices[i]
-            
-            profit = prices[i] - buying_price
+        for price in prices:    
+            if price < lowest_price:
+                lowest_price = price
+            profit = price - lowest_price
             if profit > max_profit:
                 max_profit = profit
-            
+        
         return max_profit
+
+        Time Complexity: O(n)
+        Space Complexity: O(1)
