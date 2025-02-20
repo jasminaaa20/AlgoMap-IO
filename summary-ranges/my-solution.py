@@ -1,9 +1,5 @@
-class Solution(object):
-    def summaryRanges(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[str]
-        """
+class Solution:
+    def summaryRanges(self, nums: List[int]) -> List[str]:
         if not nums:
             return []
 
@@ -17,7 +13,7 @@ class Solution(object):
 
         # Append the last range (merged into loop logic)
         ranges.append(str(start) if start == nums[-1] else f"{start}->{nums[-1]}")
-        
+
         return ranges
         # Time Complexity: O(n)
         # Space Complexity: O(n)
