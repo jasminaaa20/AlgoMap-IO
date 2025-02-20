@@ -6,28 +6,17 @@ class Solution(object):
         """
         if not nums:
             return []
-        
+
         ranges = []
-        range_start = nums[0]
-        range_end = nums[0]
+        start = nums[0]  # Track start of the current range
 
         for i in range(1, len(nums)):
-            current = nums[i]
-            if current != nums[i-1] + 1:
-                if range_start == range_end:
-                    ranges.append(str(range_start))
-                else:
-                    ranges.append("{}->{}".format(range_start, range_end))
-                range_start = current
-                range_end = current
-            else:
-                range_end = current
+            if nums[i] != nums[i - 1] + 1:  # If discontinuity found
+                ranges.append(str(start) if start == nums[i - 1] else f"{start}->{nums[i - 1]}")
+                start = nums[i]  # Start new range
 
-        # Append the last range (which is missing in the original code)
-        if range_start == range_end:
-            ranges.append(str(range_start))
-        else:
-            ranges.append("{}->{}".format(range_start, range_end))
+        # Append the last range (merged into loop logic)
+        ranges.append(str(start) if start == nums[-1] else f"{start}->{nums[-1]}")
         
         return ranges
         # Time Complexity: O(n)
