@@ -30,3 +30,5 @@ class Solution(object):
             ranges.append("{}->{}".format(range_start, range_end))
         
         return ranges
+        # Time Complexity: O(n)
+        # Space Complexity: O(n)
